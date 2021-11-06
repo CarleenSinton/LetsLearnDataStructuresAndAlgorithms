@@ -40,6 +40,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.WriteLine("Please start by choosing what you want to learn from the options below. You can type the number or the word(s) to select an option.");
             Console.WriteLine("1. Arrays");
             Console.WriteLine("2. Dictionaries");
+            Console.WriteLine("3. Lists");
             string mainMenuSelection = Console.ReadLine();
             if(mainMenuSelection == "1" || mainMenuSelection.ToLower() == "arrays")
             {
@@ -47,6 +48,9 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             } else if(mainMenuSelection == "2" || mainMenuSelection.ToLower() == "dictionaries")
             {
                 Dictionaries.DescribeDictionary();
+            } else if(mainMenuSelection == "3" || mainMenuSelection == "lists")
+            {
+                Lists.DescribeList();
             }
         }
     }
