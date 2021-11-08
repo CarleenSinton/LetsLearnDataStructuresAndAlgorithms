@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace LetsLearnDataStructuresAndAlgorithms_
 {
@@ -8,10 +9,12 @@ namespace LetsLearnDataStructuresAndAlgorithms_
     {
         public static void DescribeDictionary()
         {
+            DictionaryGraphic();
+            Thread.Sleep(1000);
             BasicDictionaryDescription();
         }
 
-        private static void BasicDictionaryDescription()
+        private static void DictionaryGraphic()
         {
             Console.WriteLine(@"
              ____  _      _   _                        _           
@@ -22,7 +25,10 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             |___/ |_|\___|\__|_|\___/|_| |_|\__,_|_|  |_|\___||___/
                                                        
             ");
+        }
 
+        private static void BasicDictionaryDescription()
+        {
             Console.WriteLine(@"
             A dictionary in computer science is like a dictionary for words. 
             The dictonary's keys are like the words.

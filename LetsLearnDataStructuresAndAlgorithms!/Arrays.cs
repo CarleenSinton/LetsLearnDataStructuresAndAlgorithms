@@ -11,7 +11,11 @@ namespace LetsLearnDataStructuresAndAlgorithms_
         {
             bool describeArrays = true;
             while (describeArrays) {
+                ArrayGraphic();
+                Thread.Sleep(1000);
                 BasicArrayDescription();
+
+
                 Console.WriteLine("Would you like an example (y/n)?");
                 string continueDescribeArray = Console.ReadLine();
                 if(continueDescribeArray == "y" || continueDescribeArray == "yes")
@@ -24,7 +28,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             }
         }
 
-        private static void BasicArrayDescription()
+        private static void ArrayGraphic()
         {
             Console.WriteLine(@"
               ____  ____   ____    ____  __ __  _____
@@ -34,7 +38,9 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             |  |  ||  .  \|  .  \|  |  ||     |/  \ |
             |__|__||__|\_||__|\_||__|__||____/ \____|
             ");
-            Thread.Sleep(1000);
+        }
+        private static void BasicArrayDescription()
+        {
             Console.WriteLine(@"
             Arrays are a data structure that can store a fixed-size collection of elements of the same data type.
 
