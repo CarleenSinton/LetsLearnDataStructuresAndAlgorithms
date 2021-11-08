@@ -45,10 +45,14 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("3. Lists");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("4. BubbleSort");
+            Console.WriteLine("4. Bubble Sort");
             Console.WriteLine(@"
-            Data Structures yet to be implemented: stacks, queues, trees, tries, matrices, graphs, heaps
-            Sorting algorithms, traversal algorithms, searching algorithms
+            Completed: Bubble Sort
+            Work in Progress: Arrays, Dictionaries, Lists
+            To Do: Stacks, Queues, Trees, Tries, Matrices, Graphs, Heaps, 
+                   Bucket Sort, Merge Sort, Quick Sort, Preorder Traversal, 
+                   Inorder Traversal, Postorder Traversal, Breadth First Search,
+                   Depth First Search
             ");
             string mainMenuSelection = Console.ReadLine();
             if(mainMenuSelection == "1" || mainMenuSelection.ToLower() == "arrays")
