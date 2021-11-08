@@ -9,13 +9,14 @@ namespace LetsLearnDataStructuresAndAlgorithms_
     {
         public static void DescribeBubbleSort()
         {
+            Console.WriteLine("     __________________________________________________________________________________________");
             BubbleSortGraphic();
             bool contBubbleSort = true;
 
             while (contBubbleSort)
             {
                 Console.WriteLine("");
-                Console.WriteLine("     _____________________________________________________________________________________________________");
+                Console.WriteLine("     __________________________________________________________________________________________");
                 Console.WriteLine(@"
 
             What do you want to know about bubble sort?
@@ -23,23 +24,32 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             1. Introduction to Bubble Sort
             2. Example of Bubble Sort with Explanation
             3. See Bubble Sort with Your Own Example
-            4. Return to Main Menu
+            4. How to Code Bubble Sort in C#
+            5. Return to Main Menu
             ");
                 string bubbleSortMenuSelection = Console.ReadLine();
                 if (bubbleSortMenuSelection == "1" || bubbleSortMenuSelection.ToLower() == "introduction to bubble sort")
                 {
+                    Console.WriteLine("Introduction to Bubble Sort");
                     BasicBubbleSortDescription();
                 }
                 else if (bubbleSortMenuSelection == "2" || bubbleSortMenuSelection.ToLower() == "example of bubble sort with explanation")
                 {
+                    Console.WriteLine("Example of Bubble Sort with Explanation");
                     BubbleSortExample();
                 }
                 else if (bubbleSortMenuSelection == "3" || bubbleSortMenuSelection.ToLower() == "see bubble sort with your own example")
                 {
+                    Console.WriteLine("See Bubble Sort with Your Own Example");
                     TryBubbleSort();
-                }
-                else if (bubbleSortMenuSelection == "4" || bubbleSortMenuSelection.ToLower() == "return to main menu")
+                } else if (bubbleSortMenuSelection == "4" || bubbleSortMenuSelection.ToLower() == "how to code bubble sort in c#")
                 {
+                    Console.WriteLine("How to Code Bubble Sort in C#");
+                    ShowBubbleSortCode();
+                }
+                else if (bubbleSortMenuSelection == "5" || bubbleSortMenuSelection.ToLower() == "return to main menu")
+                {
+                    Console.WriteLine("Return to Main Menu");
                     contBubbleSort = false;
                 }
                 else
@@ -65,7 +75,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             One of the simplest sorting algorithms (but not very efficient), bubble sort repeatedly compares
             adjacent elements and swaps them if they are in the wrong order. 
             ");
-
+            Thread.Sleep(2000);
         }
 
         private static void BubbleSortExample()
@@ -79,7 +89,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("1 5 ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.");
+            Console.Write("4 2 8 ), Here, the algorithm compares the first two elements, and swaps them since 5 > 1.");
             
             Console.WriteLine("");
             Thread.Sleep(1000);
@@ -121,7 +131,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("5 8 ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("), Since these elements are already in order (8 > 5), algorithm does not swap them.");
+            Console.Write("), Since these elements are already in order (8 > 5), the algorithm does not swap them.");
 
             Console.WriteLine("");
             Thread.Sleep(1500);
@@ -323,6 +333,52 @@ namespace LetsLearnDataStructuresAndAlgorithms_
                 numPassThrough = numPassThrough + 1;
             }
 
+            Console.WriteLine("The array is sorted!");
+
+        }
+
+        private static void ShowBubbleSortCode()
+        {
+            Console.WriteLine(@"
+            private static void DoBubbleSort(int[] toSort)
+            {
+                //to check if sorted (full pass without any swaps)
+                bool isSorted = false;
+
+                //to shorten the length to loop through by 1 each pass through the array
+                //because each pass bubbles the largest number to the end
+                int lastUnsorted = toSort.Length - 1;
+
+                //loop through until sorted
+                while (!isSorted)
+                {
+                    // set to true so that if there are no swaps, the loop is exited
+                    isSorted = true;
+
+                    // loop and compare side by side
+                    for (int i = 0; i < lastUnsorted; i++)
+                    {
+                        //check if the left is larger than the right element to see if they need to swap
+                        if (toSort[i] > toSort[i + 1])
+                        {
+                            //swap the two that are out of order
+                            int temp = toSort[i];
+                            toSort[i] = toSort[i + 1];
+                            toSort[i + 1] = temp;
+
+                            //set isSorted to false because a trade needed to happen
+                            isSorted = false;
+                        }
+                    }
+
+                    // decrease the size of lastUnsorted on each pass through the array
+                    lastUnsorted = lastUnsorted - 1;
+                }
+
+            }
+            ");
+
+            Thread.Sleep(2000);
         }
     }
 }
