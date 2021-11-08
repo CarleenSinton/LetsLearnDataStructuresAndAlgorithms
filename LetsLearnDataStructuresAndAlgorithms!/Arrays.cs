@@ -23,7 +23,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             1. Introduction to Arrays
             2. Example of Arrays with Explanation
             3. More Information about Arrays  (Not yet implemented)
-            4. How to Work With Arrays in C# (Not yet implemented)
+            4. How to Work with Arrays in C# (Not yet implemented)
             5. Use Arrays in a LeetCode Question with Explanation  (Not yet implemented)
             6. Return to Main Menu
             ");
