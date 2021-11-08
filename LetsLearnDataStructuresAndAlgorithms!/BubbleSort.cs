@@ -9,33 +9,54 @@ namespace LetsLearnDataStructuresAndAlgorithms_
     {
         public static void DescribeBubbleSort()
         {
+            BubbleSortGraphic();
+            bool contBubbleSort = true;
 
-            Console.WriteLine("");
-            Console.WriteLine("What do you want to know about bubble sort?");
-            Console.WriteLine(@"
+            while (contBubbleSort)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("     _____________________________________________________________________________________________________");
+                Console.WriteLine(@"
+
+            What do you want to know about bubble sort?
+
             1. Introduction to Bubble Sort
             2. Example of Bubble Sort with Explanation
             3. See Bubble Sort with Your Own Example
+            4. Return to Main Menu
             ");
-            string bubbleSortMenuSelection = Console.ReadLine();
-            if(bubbleSortMenuSelection == "1" || bubbleSortMenuSelection.ToLower() == "introduction to bubble sort")
-            {
-                BasicBubbleSortDescription();
-            } else if (bubbleSortMenuSelection == "2" || bubbleSortMenuSelection.ToLower() == "example of bubble sort with explanation")
-            {
-                BubbleSortExample();
-            } else if (bubbleSortMenuSelection == "3" || bubbleSortMenuSelection.ToLower() == "see bubble sort with your own example")
-            {
-                TryBubbleSort();
-            } else
-            {
-                Console.WriteLine("Invalid selection");
+                string bubbleSortMenuSelection = Console.ReadLine();
+                if (bubbleSortMenuSelection == "1" || bubbleSortMenuSelection.ToLower() == "introduction to bubble sort")
+                {
+                    BasicBubbleSortDescription();
+                }
+                else if (bubbleSortMenuSelection == "2" || bubbleSortMenuSelection.ToLower() == "example of bubble sort with explanation")
+                {
+                    BubbleSortExample();
+                }
+                else if (bubbleSortMenuSelection == "3" || bubbleSortMenuSelection.ToLower() == "see bubble sort with your own example")
+                {
+                    TryBubbleSort();
+                }
+                else if (bubbleSortMenuSelection == "4" || bubbleSortMenuSelection.ToLower() == "return to main menu")
+                {
+                    contBubbleSort = false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid selection");
+                }
             }
         }
 
         private static void BubbleSortGraphic()
         {
-
+            Console.WriteLine(@"
+             ____  __  __  ____  ____  __    ____    ___  _____  ____  ____ 
+            (  _ \(  )(  )(  _ \(  _ \(  )  ( ___)  / __)(  _  )(  _ \(_  _)
+             ) _ < )(__)(  ) _ < ) _ < )(__  )__)   \__ \ )(_)(  )   /  )(  
+            (____/(______)(____/(____/(____)(____)  (___/(_____)(_)\_) (__) 
+            ");
         }
 
         private static void BasicBubbleSortDescription()
@@ -73,7 +94,6 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.Write("4 5 ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("2 8 ), Swap since 5 > 4");
-            //Console.Write("\r yo yo yo");
 
             Console.WriteLine("");
             Thread.Sleep(1000);
@@ -104,7 +124,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.Write("), Since these elements are already in order (8 > 5), algorithm does not swap them.");
 
             Console.WriteLine("");
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             Console.WriteLine("");
 
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -115,7 +135,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             ");
 
             Console.WriteLine("");
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
             Console.WriteLine("");
 
             Console.ForegroundColor = ConsoleColor.White;
@@ -189,7 +209,7 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             ");
 
             Console.WriteLine("");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.WriteLine("");
 
             Console.ForegroundColor = ConsoleColor.White;
@@ -235,17 +255,11 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             Console.WriteLine("");
 
             Console.WriteLine("We've now made it a whole time through without any swaps! Our array is sorted.");
-            Console.WriteLine("( 1 2 4 5 8");
+            Console.WriteLine("( 1 2 4 5 8 )");
 
             Console.WriteLine("");
-            Console.WriteLine("Would you like to try an example of your own? (y/n)");
-            string exampleMenuSelection = Console.ReadLine();
-
-            if(exampleMenuSelection == "y")
-            {
-                TryBubbleSort();
-            }
-
+            Thread.Sleep(2000);
+            Console.WriteLine("");
         }
 
         private static void TryBubbleSort()
@@ -276,18 +290,21 @@ namespace LetsLearnDataStructuresAndAlgorithms_
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Pass Through #{0}", numPassThrough);
+                Thread.Sleep(500);
                 Console.ForegroundColor = ConsoleColor.White;
 
                 isSorted = true;
                 // loop and compare side by side
                 for(int i = 0; i < lastUnsorted; i++)
                 {
+                    Thread.Sleep(500);
                     Console.WriteLine("Step #{0}", i + 1);
                     for (int j = 0; j < toSort.Length; j++)
                     {
                         Console.Write(toSort[j] + " ");
                     }
-                    Console.WriteLine("");
+                    Console.Write(" ---> ");
+                    Thread.Sleep(1000);
                     if (toSort[i] > toSort[i + 1])
                     {
                         //swap them
@@ -296,6 +313,11 @@ namespace LetsLearnDataStructuresAndAlgorithms_
                         toSort[i + 1] = temp;
                         isSorted = false;
                     }
+                    for (int j = 0; j < toSort.Length; j++)
+                    {
+                        Console.Write(toSort[j] + " ");
+                    }
+                    Console.WriteLine("");
                 }
                 lastUnsorted = lastUnsorted - 1;
                 numPassThrough = numPassThrough + 1;
